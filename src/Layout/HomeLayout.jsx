@@ -6,11 +6,11 @@ import HomeRight from '../Components/Shared/HomeRight/HomeRight';
 const HomeLayout = () => {
     return (
         <div className='flex justify-between'>
-            <div className='max-267px'>
+            <div className='max-w-[267px]'>
                 <HomeLeft></HomeLeft>
             </div>
             <Outlet></Outlet>
-            <div className='w-[267px]'>
+            <div className='max-w-[267px]'>
                 <HomeRight></HomeRight>
             </div>
 

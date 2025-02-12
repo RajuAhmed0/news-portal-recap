@@ -1,28 +1,37 @@
 import React from 'react';
+import { BsBookmark } from 'react-icons/bs';
+import { FaEye, FaShareAlt, FaStar } from 'react-icons/fa';
+import { IoMdShare } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
-const Midcard = () => {
+const Midcard = ({ article }) => {
+    console.log(article);
+
     return (
         <>
-            {/*  <div className=" bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="p-4 flex items-center justify-between">
+            <div className=" bg-white overflow-hidden rounded-[5px] border border-[#E7E7E7] mt-5">
+                <div className="pt-[13px] pb-[16px] px-5 flex items-center justify-between bg-[#F3F3F3]">
                     <div className="flex items-center">
                         <img
                             src={article.author.img}
                             alt={article.author.name}
                             className="w-10 h-10 rounded-full"
                         />
-                        <div className="ml-3">
+                        <div className="ml-[15px]">
                             <h3 className="text-sm font-semibold">{article.author.name}</h3>
                             <p className="text-xs text-gray-500">
                                 {new Date(article.author.published_date).toDateString()}
                             </p>
                         </div>
                     </div>
-                    <FaShareAlt className="text-gray-500 cursor-pointer" />
+                    <div className='flex gap-[10px]'>
+                        <BsBookmark className='text-2xl' />
+                        <IoMdShare className='text-2xl' />
+                    </div>
                 </div>
 
-                <div className="px-4">
-                    <h2 className="text-lg font-bold leading-tight mb-2">
+                <div className="px-6 pt-[14px] pb-5">
+                    <h2 className="text-xl font-bold leading-[35px] text-[#403F3F]">
                         {article.title}
                     </h2>
                 </div>
@@ -30,17 +39,17 @@ const Midcard = () => {
                 <img
                     src={article.image_url}
                     alt="News Thumbnail"
-                    className="w-full h-48 object-cover"
+                    className="w-full h-full object-cover px-5"
                 />
 
-                <div className="p-4">
-                    <p className="text-sm text-gray-700 mb-2">
+                <div className="px-5 pb-5">
+                    <p className=" text-gray-700 mb-2 pt-[32px] leading-[26px]">
                         {article.details.substring(0, 150)}...
                     </p>
                     <Link to={`/newsDetails/${article._id}`} ><button className="text-orange-500 font-semibold">Read More</button></Link>
                 </div>
 
-                <div className="px-4 py-2 flex items-center justify-between border-t">
+                <div className="px-4 pt-5 pb-5  flex items-center justify-between border-t">
                     <div className="flex items-center">
                         <FaStar className="text-orange-500 mr-1" />
                         <FaStar className="text-orange-500 mr-1" />
@@ -54,7 +63,7 @@ const Midcard = () => {
                         <span className="text-sm font-semibold">{article.total_view} </span>
                     </div>
                 </div>
-            </div>  */}
+            </div>
         </>
     );
 };
