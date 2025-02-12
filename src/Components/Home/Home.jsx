@@ -3,9 +3,11 @@ import Topbar from '../Shared/Topbar/Topbar';
 import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
+import HomeLayout from '../../Layout/HomeLayout';
 
 const Home = () => {
     return (
+        // top nav start 
         <div className='max-w-[1140px] mx-auto'>
             <div className='flex justify-center'>
                 <Topbar></Topbar>
@@ -23,6 +25,11 @@ const Home = () => {
             </div>
             <div className='mt-[21px]'>
                 <Navbar></Navbar>
+            </div>
+            {/*  top nav end */}
+
+            <div className='mt-20'>
+                <HomeLayout></HomeLayout>
             </div>
         </div>
     );
