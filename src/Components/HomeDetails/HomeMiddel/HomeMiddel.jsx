@@ -10,7 +10,7 @@ const HomeMiddel = () => {
         <div>
             <h2 className='text-xl font-semibold text-[#403F3F] mb-5'>Dragon News Home</h2>
             <div className='w-[558px]'>
-             
+
             </div>
         </div>
     );

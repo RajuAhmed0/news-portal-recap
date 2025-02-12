@@ -10,7 +10,7 @@ const HomeLayout = () => {
                 <HomeLeft></HomeLeft>
             </div>
             <Outlet></Outlet>
-            <div>
+            <div className='w-[267px]'>
                 <HomeRight></HomeRight>
             </div>
 
