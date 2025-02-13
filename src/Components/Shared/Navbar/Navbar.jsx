@@ -15,7 +15,7 @@ const Navbar = () => {
         </div>
         <div className='flex items-center gap-[9px]'>
             <img className='w-[42px]'  src={UserLogo} alt="" />
-            <Link to={"/login"}><button className='font-semibold text-white text-xl bg-[#403F3F] px-[42px] py-[8px]'>Login</button></Link>
+            <Link to={"/signin"}><button className='font-semibold text-white text-xl bg-[#403F3F] px-[42px] py-[8px]'>Login</button></Link>
         </div>
     </div>
     );

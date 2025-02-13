@@ -20,7 +20,7 @@ const Signin = () => {
                             <input type="password" name="password" className="w-full bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your password" required />
                         </div>
                         <button
-                            type="submit"
+                            type="submit" to='/'
                             className="w-full bg-[#403F3F] text-xl font-semibold text-white py-4 rounded-lg hover:bg-gray-800 transition"
                         >
                             Login

@@ -18,6 +18,14 @@ export const route = createBrowserRouter([
         ]
     },
     {
+        path: "/about",
+        element: <h1>web about</h1>
+    },
+    {
+        path: "/career",
+        element: <h1>web career</h1>
+    },
+    {
         path: "/newsDetails/:id",
         element: <DetailsInfo></DetailsInfo>
     },
