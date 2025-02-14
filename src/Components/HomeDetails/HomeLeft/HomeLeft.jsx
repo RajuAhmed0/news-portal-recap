@@ -17,7 +17,7 @@ const HomeLeft = () => {
             <h2 className='text-xl text-[#403F3F] font-semibold mb-5'>All Caterogy</h2>
             <div className='flex flex-col'>
                 {
-                    category?.map(categorys => <NavLink to={`/${categorys.category_id}`} 
+                    category?.map(categorys => <NavLink to={`/${categorys.category_id}`}
                         className={`text-xl font-medium text-[#403F3F] py-[17px] pl-[50px] rounded-[5px]`}>{categorys.category_name}</NavLink>)
                 }
             </div>

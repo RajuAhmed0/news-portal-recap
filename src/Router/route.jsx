@@ -1,9 +1,10 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Home from "../Components/Home/Home";
 import HomeMiddel from "../Components/HomeDetails/HomeMiddel/HomeMiddel";
 import DetailsInfo from "../Components/DetailsInfo/DetailsInfo";
 import Signin from "../Components/SignIn/Signin";
 import Regiser from "../Components/Registar/Regiser";
+import PrivateRoute from "./PrivateRoute";
 
 export const route = createBrowserRouter([
     {
@@ -14,7 +15,11 @@ export const route = createBrowserRouter([
                 path: '/:id',
                 element: <HomeMiddel></HomeMiddel>,
                 loader: async({params})=>fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`)
-            }
+            },
+            {
+                path: "/",
+                element: <Navigate to="/01" />,  // Redirect to default ID
+            },
         ]
     },
     {
@@ -27,7 +32,7 @@ export const route = createBrowserRouter([
     },
     {
         path: "/newsDetails/:id",
-        element: <DetailsInfo></DetailsInfo>
+        element: <PrivateRoute><DetailsInfo></DetailsInfo></PrivateRoute>
     },
     {
         path: "/signin",

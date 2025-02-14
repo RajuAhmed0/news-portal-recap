@@ -27,9 +27,6 @@ const Regiser = () => {
             })
     }
 
-
-
-
     return (
         <div className='mt-[38px] max-w-[1140px] mx-auto pb-28'>
             <Navbar></Navbar>
