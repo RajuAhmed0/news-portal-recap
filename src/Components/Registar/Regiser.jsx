@@ -9,7 +9,7 @@ const Regiser = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const { createUser, profileUpdate } = useContext(AuthContext);
 
     const onSubmit = (data) => {
@@ -20,7 +20,7 @@ const Regiser = () => {
                 profileUpdate(data.name, data.photoURL)
                     .then(user => console.log(user))
                     .catch(err => console.log(err))
-                    navigate(location.state ? location.state : "/")
+                navigate(location.state ? location.state : "/")
             })
             .catch((error) => {
                 console.log(error)
@@ -37,11 +37,12 @@ const Regiser = () => {
                     <form className='p-[21px]' onSubmit={handleSubmit(onSubmit)} >
                         <div className="mb-4">
                             <label className="block text-gray-700 font-medium mb-2"> Your Name </label>
-                            <input type="text" {...register("name")} className="w-full bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your name" required />
+                            <input type="text" {...register("name",)} className="w-full bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your name" required/>
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-700 font-medium mb-2"> Photo URL</label>
-                            <input type="text" {...register("photoURL")} className="w-full bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your photo URL" required />
+                            <input type="text" {...register("photoURL", { required: 'PhotoURL is Required' })} className="w-full bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your photo URL" />
+                            {errors.photoURL && <p className="text-red-500 text-sm">{errors.photoURL.message}</p>}
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-700 font-medium mb-2">Email </label>
@@ -49,7 +50,18 @@ const Regiser = () => {
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-700 font-medium mb-2">Password </label>
-                            <input type="password" {...register("password")} className="w-full bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your password" required />
+                            <input type="password" {...register("password", {
+                                required: 'Password is required', minLength: {
+                                    value: 6, message: 'Password must be 6 characters'
+                                },
+                                maxLength: {
+                                    value: 8, message: 'Password must be 8 characters or less'
+                                },
+                                pattern: {
+                                    value: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{6,8}$/, message: 'Password must be include one uppercase letter,number,and special character'
+                                }
+                            })} className="w-full bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your password"  />
+                            {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                         </div>
                         <div className="mb-6">
                             <label className="flex items-center">
